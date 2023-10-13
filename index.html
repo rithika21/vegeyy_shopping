@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Online Vegetable Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(1.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .navbar {
+            width: 1200px;
+            height: 75px;
+            margin: auto;
+        }
+
+        .icon {
+            width: 200px;
+            float: left;
+            height: 70px;
+        }
+
+        
+        .menu {
+            width: 400px;
+            float: left;
+        }
+
+        ul {
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul li {
+            list-style: none;
+            margin-left: 62px;
+            margin-top: 27px;
+            font-size: 14px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-family: Arial;
+            font-weight: bold;
+            transition: 0.4s ease-in-out;
+        }
+
+        ul li a:hover {
+            color: #ff7200;
+        }
+
+        .search {
+            width: 330px;
+            float: left;
+            margin-left: 270px;
+        }
+
+        .srch {
+            font-family: 'Times New Roman';
+            width: 200px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid #ff7200;
+            margin-top: 13px;
+            color: #fff;
+            border-right: none;
+            font-size: 16px;
+            float: left;
+            padding: 10px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .btn {
+            width: 100px;
+            height: 40px;
+            background: #ff7200;
+            border: 2px solid #ff7200;
+            margin-top: 13px;
+            color: #fff;
+            font-size: 15px;
+            border-bottom-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            color: #000;
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .srch:focus {
+            outline: none;
+        }
+
+        .content-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; 
+            padding: 20px;
+        }
+
+        .content {
+            width: calc(60% - 20px); 
+            color: #fff;
+            margin-right: 20px; 
+        }
+
+        .content h1 {
+            font-family: 'Times New Roman';
+            font-size: 50px;
+            letter-spacing: 2px;
+            margin-bottom: 20px; 
+        }
+
+        .content .par {
+            font-family: Arial;
+            letter-spacing: 1.2px;
+            line-height: 30px;
+            text-align: left;
+            margin-bottom: 20px; 
+        }
+
+        .content .cn {
+            width: 160px;
+            height: 40px;
+            background: #ff7200;
+            border: none;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .4s ease;
+            align-self: flex-start
+        }
+
+        .content .cn a {
+            text-decoration: none;
+            color: #000;
+            transition: .3s ease;
+        }
+
+        .cn:hover {
+            background-color: #fff;
+        }
+
+        .form {
+            width: 300px;
+            height: 380px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.8) 50%);
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 10px;
+            padding-top:25px;
+            padding-bottom:25px;
+            padding-left:25px;
+            padding-right:25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 90px;
+            margin-right:20px;
+        }
+
+        .form h2 {
+            font-family: sans-serif;
+            text-align: center;
+            color: #ff7200;
+            font-size: 22px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 2px;
+            padding: 8px;
+        }
+
+        .form input {
+            width: 240px;
+            height: 35px;
+            background: transparent;
+            border-bottom: 1px solid #ff7200;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            color: #fff;
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            font-family: sans-serif;
+        }
+
+        .form input:focus {
+            outline: none;
+        }
+
+        ::placeholder {
+            color: #fff;
+            font-family: Arial;
+        }
+
+        .btnn {
+            width: 240px;
+            height: 40px;
+            background: #ff7200;
+            border: none;
+            margin-top: 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #fff;
+            transition: 0.4s ease;
+        }
+
+        .btnn:hover {
+            background: #fff;
+            color: #ff7200;
+        }
+
+        .btnn a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .form .link {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .form .link a {
+            text-decoration: none;
+            color: #ff7200;
+        }
+
+        .liw {
+            padding-top: 15px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .icons a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .icons ion-icon {
+            color: #fff;
+            font-size: 30px;
+            padding-left: 14px;
+            padding-top: 5px;
+            transition: 0.3s ease;
+        }
+
+        .icons ion-icon:hover {
+            color: #ff7200;
+        }
+
+        .menu .dropdown {
+            position: relative
+        }
+
+        .menu .dropdown button.dropbtn {
+            background-color: transparent;
+            position: relative;
+            padding-left: 5px;
+            padding-top: 5px;
+            padding-right: 10px;
+            border: none;
+            color: #fff;
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+        }
+
+        .menu .dropdown button.dropbtn:hover {
+            color:  #ff7200; 
+        }
+
+       
+        .menu .dropdown .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 100%; 
+            left: 0;
+        }
+
+        .menu .dropdown .dropdown-content a {
+            color: #333
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            font-family: Arial;
+            transition: 0.3s ease-in-out;
+        }
+
+      
+        .menu .dropdown .dropdown-content a:hover {
+            background-color: #ff7200; */
+            color: #fff; 
+        }
+
+        .menu .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .menu .dropdown {
+            margin-right: 10px; 
+            padding-top: 25px;
+        }
+        .single-line-content {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    width: 200px; 
+    padding: 5px; 
+            color: #ff7200;
+            font-size: 30px;
+            font-family: Arial;
+            padding-left: 5px;
+            float: left;
+            padding-top: 13px;
+            margin-top: 5px;
+        
+
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h4 class="single-line-content">Freshy Vegs</h4>
+            </div>
+
+            <div class="menu">
+                <ul>
+                   
+                        <button class="dropbtn">HOME</button>
+                       
+                   
+                    <div class="dropdown">
+                        <button class="dropbtn">PRODUCT</button>
+                        <div class="dropdown-content">
+                            <a href="https://www.bigbasket.com/pc/fruits-vegetables/exotic-fruits-veggies/">Available Products</a>
+                            <a href="#">Offers</a>
+                            <a href="#">Rating</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">ABOUT</button>
+                        <div class="dropdown-content">
+                            <a href="#">About Us</a>
+                            <a href="#">Our Team</a>
+                            <a href="#">History</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">BLOG</button>
+                        <div class="dropdown-content">
+                            <a href="#">Post</a>
+                            <a href="#">Pages</a>
+                            
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">CONTACT</button>
+                        <div class="dropdown-content">
+                            <a href="#">E-mail</a>
+                            <a href="#">Phone number</a>
+                            
+                        </div>
+                    </div>
+                   
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Search for vegetables">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div>
+
+        </div> 
+        <div class="content-container">
+            <div class="content">
+                <h1>Welcome to Freshy Vegs - Your Online Vegetable Store</h1>
+                <p class="par">Discover Freshness, Delivered to Your Doorstep!
+
+                    Explore a world of vibrant, farm-fresh vegetables right at your fingertips. At FRESHY VEGS, we're your go-to destination for all your vegetable needs.
+                    
+                    
+                    
+                    
+                    </p>
+                <button class="cn"><a href="#">Shop Now</a></button>
+            </div>
+
+            <div class="form">
+                <h2>Login or Create an Account</h2>
+                <input type="email" name="email" placeholder="Enter Email Here">
+                <input type="password" name="" placeholder="Enter Password Here">
+                <button class="btnn"><a href="#">Login</a></button>
+
+                <p class="link" style="color: #fff;">Don't have an account?
+<br>
+                    <a href="#">Sign up here</a></p>
+                <p class="liw" style="color: #fff;">Log in with</p>
+
+                <div class="icons">
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>
